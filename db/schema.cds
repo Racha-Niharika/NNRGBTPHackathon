@@ -57,6 +57,13 @@ entity Product: cuid, managed {
     psp: Integer;
    
 }
+entity Stock {
+    key ID            : UUID;
+    storeId         : Association to Store;
+    productId       : Association to Product;
+    stock_qty        : Integer;
+}
+
 
 @cds.persistence.skip
 entity States {

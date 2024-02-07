@@ -13,9 +13,15 @@ annotate SalesDB.Sales with @odata.draft.enabled;
 annotate SalesDB.States with @odata.draft.enabled;
 annotate SalesDB.Store with @odata.draft.enabled;
 annotate SalesDB.Product with @odata.draft.enabled;
+
 annotate SalesDB.Sales with {
     pincode  @assert.format: '^[1-9][0-9]{5}$';
     gst_no @assert.format: '^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[0-9]{1}[Z]{1}[0-9]{1}$';
+    
+    //telephone @assert.format: '^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$';
+};
+annotate SalesDB.Product with {
+    imgurl @assert.format:'/^(https?|ftp):\/\/(([a-z\d]([a-z\d-]*[a-z\d])?\.)+[a-z]{2,}|localhost)(\/[-a-z\d%_.~+]*)*(\?[;&a-z\d%_.~+=-]*)?(\#[-a-z\d_]*)?$/i';
     
     //telephone @assert.format: '^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$';
 };
