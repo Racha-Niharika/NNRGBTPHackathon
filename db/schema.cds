@@ -28,6 +28,36 @@ entity Sales: cuid, managed {
     @title: 'Is_customer'
      is_customer: Boolean default false;
 }
+entity Store: cuid, managed {
+    @title: 'store id'
+    stid: String(10);
+    @title: 'Name'
+    name: String(10);
+    @title: 'Address1'
+    address1: String(10);
+     @title: 'Address2'
+    address2: String(10);
+     @title: 'City'
+    city: String(10);
+    @title: 'State'
+    state:  String(10);
+    @title: 'PINCode'
+    pincode: String(7) ;
+}
+entity Product: cuid, managed {
+    @title: 'product id'
+    pid: String(10);
+    @title: 'product Name'
+    pname: String(10);
+    @title: 'product image url'
+    imgurl: String(100);
+     @title: 'product cost price'
+    pcp: Integer;
+     @title: 'Product Selling Price'
+    psp: Integer;
+   
+}
+
 @cds.persistence.skip
 entity States {
     @title: 'code'
