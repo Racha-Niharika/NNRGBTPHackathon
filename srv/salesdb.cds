@@ -322,3 +322,9 @@ annotate SalesDB.Store with {
         }
     );
 }
+/*
+ {
+                    $Type             : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty : 'description'
+                }
+                */
