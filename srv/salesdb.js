@@ -4,7 +4,7 @@ module.exports = cds.service.impl(function () {
     const { Sales,States,Store,Product } = this.entities();
     const isValidImageUrl = (url) => {
       // Regular expression pattern to validate URL format
-      const urlPattern =/^(https?):\/\/.*\.(?:jpg|gif|png)$/;
+     // const urlPattern =/^(https?):\/\/.*\.(?:jpg|gif|png)$/;
 
       // Test if the URL matches the pattern
       return urlPattern.test(url);
@@ -27,6 +27,7 @@ module.exports = cds.service.impl(function () {
         const { imgurl } = req.data;
 
         // Check if the imgurl is a valid URL
+        /*
         if (!isValidImageUrl(imgurl)) {
             req.error({
                 code: "INVALID_IMGURL",
@@ -34,6 +35,7 @@ module.exports = cds.service.impl(function () {
                
             });
         }
+        */
 
       });
       this.before("CREATE", Product, async (req) => {
