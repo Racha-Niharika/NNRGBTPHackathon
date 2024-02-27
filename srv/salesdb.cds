@@ -565,6 +565,7 @@ annotate SalesDB.Unique_Qty with @(
     
     ],    
 );
+
 annotate SalesDB.Stock  with {
     product_id @(
         Common.Text: product_id.description,
@@ -617,6 +618,32 @@ annotate SalesDB.Stock  with {
         }
     )
 };
+annotate SalesDB.Stock  with {
+    stock_qty @(
+        Common.Text: stock_qty.description,
+        Common.TextArrangement: #TextOnly,
+        Common.ValueListWithFixedValues: true,
+        Common.ValueList : {
+            Label: 'Stock QTY',
+            CollectionPath : 'Unique_Qty',
+            Parameters: [
+                {
+                    $Type             : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : stock_qty_ID,
+                    ValueListProperty : 'ID'
+                },
+                {
+                    $Type             : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty : 'code'
+                },
+                {
+                    $Type             : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty : 'description'
+                },
+            ]
+        }
+    )
+};
 annotate SalesDB.Product with {
     pid @(
         Common.Text: pid.description,
@@ -629,6 +656,32 @@ annotate SalesDB.Product with {
                 {
                     $Type             : 'Common.ValueListParameterInOut',
                     LocalDataProperty : pid_ID,
+                    ValueListProperty : 'ID'
+                },
+                {
+                    $Type             : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty : 'code'
+                },
+                {
+                    $Type             : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty : 'description'
+                },
+            ]
+        }
+    )
+};
+annotate SalesDB.Sales  with {
+    bno @(
+        Common.Text: bno.description,
+        Common.TextArrangement: #TextOnly,
+        Common.ValueListWithFixedValues: true,
+        Common.ValueList : {
+            Label: 'Bussiness Partner ',
+            CollectionPath : 'Unique_BPNUM',
+            Parameters: [
+                {
+                    $Type             : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : bno_ID,
                     ValueListProperty : 'ID'
                 },
                 {
