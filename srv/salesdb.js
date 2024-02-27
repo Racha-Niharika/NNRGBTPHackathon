@@ -47,6 +47,15 @@ module.exports = cds.service.impl(function () {
             });
         }
     });
+    this.before("UPDATE", Product, async (req) => {
+        const { pcp, psp } = req.data;
+
+        if (psp < pcp) {
+            req.error({
+                message: "Selling price must not be less than cost price"
+            });
+        }
+    });
       
     
     this.on('READ',States,async(req)=>{
